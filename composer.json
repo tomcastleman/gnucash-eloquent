@@ -16,7 +16,7 @@
   },
   "autoload": {
     "psr-4": {
-      "GnuCash\\Models": "src/"
+      "GnuCash\\Models\\": "src/"
     }
   }
 }
