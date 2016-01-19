@@ -1,11 +1,12 @@
-<?php namespace Gnucash\Models\Replication;
+<?php
+
+namespace Gnucash\Models\Replication;
 
 use Gnucash\Models\Replication;
 use Illuminate\Database\Eloquent\Builder;
 
 class PartnershipMember extends Replication
 {
-
     protected $primaryKey = 'name';
 
     public function scopeForBookAccount($query, $book, $accountGuid)

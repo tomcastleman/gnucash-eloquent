@@ -1,8 +1,9 @@
-<?php namespace Gnucash\Models\Book;
+<?php
+
+namespace Gnucash\Models\Book;
 
 interface SplitInterface
 {
-
     const RECONCILE_STATE_CLEARED = 'c';
     const RECONCILE_STATE_RECONCILED = 'y';
     const RECONCILE_STATE_NEW = 'n';
@@ -11,5 +12,4 @@ interface SplitInterface
 
     const REPLICATED = 1;
     const NOT_REPLICATED = 2;
-
 }

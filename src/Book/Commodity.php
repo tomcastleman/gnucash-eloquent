@@ -1,10 +1,11 @@
-<?php namespace Gnucash\Models\Book;
+<?php
+
+namespace Gnucash\Models\Book;
 
 use Gnucash\Models\Book;
 
 abstract class Commodity extends Book
 {
-
     protected $table = 'commodities';
     protected $primaryKey = 'guid';
 
