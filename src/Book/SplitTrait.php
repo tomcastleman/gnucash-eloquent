@@ -1,6 +1,6 @@
 <?php
 
-namespace Gnucash\Models\Book;
+namespace GnuCash\Models\Book;
 
 trait SplitTrait
 {

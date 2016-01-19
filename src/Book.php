@@ -1,10 +1,10 @@
 <?php
 
-namespace Gnucash\Models;
+namespace GnuCash\Models;
 
-use Gnucash\Models\Book\Account;
-use Gnucash\Models\Book\SplitPivot;
-use Gnucash\Models\Book\Transaction;
+use GnuCash\Models\Book\Account;
+use GnuCash\Models\Book\SplitPivot;
+use GnuCash\Models\Book\Transaction;
 use Illuminate\Database\Eloquent\Model;
 
 abstract class Book extends Model

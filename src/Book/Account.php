@@ -1,8 +1,8 @@
 <?php
 
-namespace Gnucash\Models\Book;
+namespace GnuCash\Models\Book;
 
-use Gnucash\Models\Book;
+use GnuCash\Models\Book;
 
 abstract class Account extends Book
 {

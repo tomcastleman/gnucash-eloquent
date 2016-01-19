@@ -1,6 +1,6 @@
 <?php
 
-namespace Gnucash\Models;
+namespace GnuCash\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

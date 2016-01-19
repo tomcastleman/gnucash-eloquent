@@ -1,8 +1,8 @@
 <?php
 
-namespace Gnucash\Models\Replication;
+namespace GnuCash\Models\Replication;
 
-use Gnucash\Models\Replication;
+use GnuCash\Models\Replication;
 
 class Transaction extends Replication
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Gnucash\Models\Book;
+namespace GnuCash\Models\Book;
 
 use Carbon\Carbon;
-use Gnucash\Models\Book;
+use GnuCash\Models\Book;
 
 abstract class Transaction extends Book
 {
