@@ -1,0 +1,22 @@
+{
+  "name": "b3it/gnucash-eloquent",
+  "description": "Laravel Eloquent models for the GnuCash MySQL backend.",
+  "keywords": ["gnucash", "eloquent", "laravel", "active record", "orm"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Tom Castleman",
+      "email": "tom.castleman@b3-it.com"
+    }
+  ],
+  "require": {
+    "illuminate/support": "^5.1|^5.2",
+    "illuminate/database": "^5.1|^5.2",
+    "nesbot/carbon": "^1.21"
+  },
+  "autoload": {
+    "psr-4": {
+      "GnuCash\\Models": "src/"
+    }
+  }
+}
