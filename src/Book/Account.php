@@ -1,10 +1,11 @@
-<?php namespace Gnucash\Models\Book;
+<?php
+
+namespace Gnucash\Models\Book;
 
 use Gnucash\Models\Book;
 
 abstract class Account extends Book
 {
-
     protected $table = 'accounts';
     protected $primaryKey = 'guid';
 
@@ -68,6 +69,7 @@ abstract class Account extends Book
     }
 
     // Used for balance values (?)
+
     public function getInvert1Attribute()
     {
         if (in_array($this->account_type, [
@@ -76,13 +78,14 @@ abstract class Account extends Book
             'PAYABLE',
             'INCOME',
         ])) {
-            return - 1;
+            return -1;
         }
 
         return 1;
     }
 
     // Used for transaction values (?)
+
     public function getInvert0Attribute()
     {
         if (in_array($this->account_type, [
@@ -94,7 +97,7 @@ abstract class Account extends Book
             return 1;
         }
 
-        return - 1;
+        return -1;
     }
 
     public function getBalanceNew0Attribute()
@@ -145,6 +148,4 @@ abstract class Account extends Book
             $this->guid
         );
     }
-
-
 }

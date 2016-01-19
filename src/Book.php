@@ -1,13 +1,14 @@
-<?php namespace Gnucash\Models;
+<?php
+
+namespace Gnucash\Models;
 
 use Gnucash\Models\Book\Account;
 use Gnucash\Models\Book\SplitPivot;
-use Illuminate\Database\Eloquent\Model;
 use Gnucash\Models\Book\Transaction;
+use Illuminate\Database\Eloquent\Model;
 
 abstract class Book extends Model
 {
-
     const CONNECTION_PREFIX = 'gnucash_book_';
 
     public $incrementing = false;
@@ -39,22 +40,21 @@ abstract class Book extends Model
 
     protected function namespaceForBook($abstractClassPath)
     {
-        return $this->namespace . '\\' . class_basename($abstractClassPath);
+        return $this->namespace.'\\'.class_basename($abstractClassPath);
     }
 
     private function bookConnection()
     {
-        return self::CONNECTION_PREFIX . strtolower(class_basename($this->namespace));
+        return self::CONNECTION_PREFIX.strtolower(class_basename($this->namespace));
     }
 
     private function bookNamespace()
     {
-        return str_replace('\\' . class_basename(static::class), '', static::class);
+        return str_replace('\\'.class_basename(static::class), '', static::class);
     }
 
     public static function factory()
     {
-        return new static;
+        return new static();
     }
-
 }

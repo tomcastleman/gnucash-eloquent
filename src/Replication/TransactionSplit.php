@@ -1,12 +1,13 @@
-<?php namespace Gnucash\Models\Replication;
+<?php
 
-use RuntimeException;
+namespace Gnucash\Models\Replication;
+
 use Gnucash\Models\Replication;
 use Illuminate\Database\Eloquent\Builder;
+use RuntimeException;
 
 class TransactionSplit extends Replication
 {
-
     protected $primaryKey = 'repl_id';
 
     protected $fillable = [
@@ -24,7 +25,7 @@ class TransactionSplit extends Replication
     public function opposite()
     {
         if (is_null($this->partner_id)) {
-            throw new RuntimeException(self::class . ' opposite relationship must be lazy eager loaded.');
+            throw new RuntimeException(self::class.' opposite relationship must be lazy eager loaded.');
         }
 
         return $this->hasOne(self::class, 'repl_id', 'repl_id')
@@ -62,5 +63,4 @@ class TransactionSplit extends Replication
 
         return $query;
     }
-
 }

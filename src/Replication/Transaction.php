@@ -1,10 +1,11 @@
-<?php namespace Gnucash\Models\Replication;
+<?php
+
+namespace Gnucash\Models\Replication;
 
 use Gnucash\Models\Replication;
 
 class Transaction extends Replication
 {
-
     protected $primaryKey = 'repl_id';
     public $incrementing = true;
 

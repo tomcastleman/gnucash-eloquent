@@ -1,8 +1,9 @@
-<?php namespace Gnucash\Models\Book;
+<?php
+
+namespace Gnucash\Models\Book;
 
 trait SplitTrait
 {
-
     public function amountFormatted($invert = 1)
     {
         return number_format($this->amount($invert), 2);
@@ -42,5 +43,4 @@ trait SplitTrait
     {
         return trim(strtoupper($this->memo)) === Split::MEMO_REPL_IGNORE;
     }
-
 }

@@ -1,11 +1,12 @@
-<?php namespace Gnucash\Models\Book;
+<?php
+
+namespace Gnucash\Models\Book;
 
 use Carbon\Carbon;
 use Gnucash\Models\Book;
 
 abstract class Transaction extends Book
 {
-
     protected $table = 'transactions';
     protected $primaryKey = 'guid';
     protected $dates = ['post_date', 'enter_date'];
@@ -105,7 +106,7 @@ abstract class Transaction extends Book
 
     public function getIsReplicatedAttribute()
     {
-        return !!$this->replicationStatus;
+        return (bool) $this->replicationStatus;
     }
 
     public function getReplicationIsAgreedAttribute()

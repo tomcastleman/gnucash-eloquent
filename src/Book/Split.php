@@ -1,11 +1,11 @@
-<?php namespace Gnucash\Models\Book;
+<?php
+
+namespace Gnucash\Models\Book;
 
 use Gnucash\Models\Book;
-use Illuminate\Database\Capsule\Manager as Capsule;
 
 abstract class Split extends Book implements SplitInterface
 {
-
     use SplitTrait;
 
     protected $table = 'splits';
@@ -53,7 +53,7 @@ abstract class Split extends Book implements SplitInterface
         $query->whereIn('memo', function ($query) {
             $query->select('memo')
                 ->from('splits')
-                ->where('memo', 'like', GNUCASH_XERO_MEMO_PREFIX . '%')
+                ->where('memo', 'like', GNUCASH_XERO_MEMO_PREFIX.'%')
                 ->groupBy('memo')
                 ->havingRaw('COUNT(guid) > 1');
         });
@@ -101,5 +101,4 @@ abstract class Split extends Book implements SplitInterface
 
         return $labels[$mode];
     }
-
 }
