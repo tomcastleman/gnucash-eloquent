@@ -4,9 +4,9 @@
 [![Latest Stable Version](https://poser.pugx.org/b3it/gnucash-eloquent/v/stable)](https://packagist.org/packages/b3it/gnucash-eloquent)
 [![License](https://poser.pugx.org/b3it/gnucash-eloquent/license)](https://packagist.org/packages/b3it/gnucash-eloquent)
 
-## Laravel Eloquent Models for GnuCash MySQL Backend
+## Laravel Eloquent Models for GnuCash [MySQL Backend](http://wiki.gnucash.org/wiki/SQL)
 
-This package provides a number of abstract models representing the following GnuCash entities:
+This package provides a number of abstract models representing the following [GnuCash](http://www.gnucash.org/) entities:
 
 * Account
 * Commodity
