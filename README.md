@@ -4,4 +4,14 @@
 [![Latest Stable Version](https://poser.pugx.org/b3it/gnucash-eloquent/v/stable)](https://packagist.org/packages/b3it/gnucash-eloquent)
 [![License](https://poser.pugx.org/b3it/gnucash-eloquent/license)](https://packagist.org/packages/b3it/gnucash-eloquent)
 
-Laravel Eloquent Models for GnuCash MySQL Backend
+## Laravel Eloquent Models for GnuCash MySQL Backend
+
+This package provides a number of abstract models representing the following GnuCash entities:
+
+* Account
+* Commodity
+* Lock
+* Split
+* Transaction
+
+Documentation on how to use these classes to follow soon.
