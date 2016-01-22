@@ -153,5 +153,4 @@ abstract class Account extends Book
     {
         return $this->invert1 * $this->balance_cleared;
     }
-
 }
