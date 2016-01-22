@@ -100,29 +100,12 @@ abstract class Account extends Book
         return -1;
     }
 
-    public function getBalanceNew0Attribute()
+    public function getBalanceAttribute()
     {
-        return $this->invert0 * $this->getBalanceNewAttribute();
-    }
-
-    public function getBalanceCleared0Attribute()
-    {
-        return $this->invert0 * $this->getBalanceClearedAttribute();
-    }
-
-    public function getBalanceNew1Attribute()
-    {
-        return $this->invert1 * $this->getBalanceNewAttribute();
-    }
-
-    public function getBalanceCleared1Attribute()
-    {
-        return $this->invert1 * $this->getBalanceClearedAttribute();
-    }
-
-    public function getBalance0Attribute()
-    {
-        return $this->invert0 * $this->getBalanceAttribute();
+        return call_user_func(
+            [$this->namespaceForBook(Split::class), 'getBalanceForAccount'],
+            $this->guid
+        );
     }
 
     public function getBalanceNewAttribute()
@@ -141,11 +124,34 @@ abstract class Account extends Book
         );
     }
 
-    public function getBalanceAttribute()
+    public function getBalance0Attribute()
     {
-        return call_user_func(
-            [$this->namespaceForBook(Split::class), 'getBalanceForAccount'],
-            $this->guid
-        );
+        return $this->invert0 * $this->balance;
     }
+
+    public function getBalance1Attribute()
+    {
+        return $this->invert1 * $this->balance;
+    }
+
+    public function getBalanceNew0Attribute()
+    {
+        return $this->invert0 * $this->balance_new;
+    }
+
+    public function getBalanceNew1Attribute()
+    {
+        return $this->invert1 * $this->balance_new;
+    }
+
+    public function getBalanceCleared0Attribute()
+    {
+        return $this->invert0 * $this->balance_cleared;
+    }
+
+    public function getBalanceCleared1Attribute()
+    {
+        return $this->invert1 * $this->balance_cleared;
+    }
+
 }
