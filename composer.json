@@ -14,9 +14,17 @@
     "illuminate/database": "^5.1",
     "nesbot/carbon": "^1.21"
   },
+  "require-dev": {
+    "phpunit/phpunit": "^4.8|^5.1"
+  },
   "autoload": {
     "psr-4": {
       "GnuCash\\Models\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "GnuCash\\Models\\Tests\\": "tests/"
     }
   }
 }
