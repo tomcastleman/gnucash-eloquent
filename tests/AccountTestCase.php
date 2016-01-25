@@ -6,7 +6,6 @@ use GnuCash\Models\Tests\Book\Test\Account;
 
 class AccountTestCase extends EloquentTestCase
 {
-
     protected $commodityGuid = 'a9eb70bbf388240b0fd9c0600a6bf28c';
 
     public function testGetActiveAccounts()
@@ -72,5 +71,4 @@ class AccountTestCase extends EloquentTestCase
             'hidden'         => 'boolean',
         ];
     }
-
 }

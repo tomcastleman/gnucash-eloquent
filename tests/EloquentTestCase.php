@@ -2,14 +2,13 @@
 
 namespace GnuCash\Models\Tests;
 
-use PHPUnit_Framework_TestCase;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Capsule\Manager as DB;
 use Illuminate\Database\Eloquent\Model as Eloquent;
+use Illuminate\Database\Schema\Blueprint;
+use PHPUnit_Framework_TestCase;
 
 abstract class EloquentTestCase extends PHPUnit_Framework_TestCase
 {
-
     protected $connection = 'gnucash_book_test';
 
     public function setUp()
@@ -20,7 +19,7 @@ abstract class EloquentTestCase extends PHPUnit_Framework_TestCase
 
     protected function configureDatabase()
     {
-        $db = new DB;
+        $db = new DB();
         $db->addConnection([
             'driver'    => 'sqlite',
             'database'  => ':memory:',
@@ -46,8 +45,7 @@ abstract class EloquentTestCase extends PHPUnit_Framework_TestCase
         Eloquent::unguard();
     }
 
-    protected abstract function table();
+    abstract protected function table();
 
-    protected abstract function columns();
-
+    abstract protected function columns();
 }
