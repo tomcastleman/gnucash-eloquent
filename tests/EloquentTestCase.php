@@ -29,6 +29,7 @@ abstract class EloquentTestCase extends PHPUnit_Framework_TestCase
         ], $this->connection);
         $db->bootEloquent();
         $db->setAsGlobal();
+        Eloquent::unguard();
     }
 
     public function migrateTable()
@@ -42,7 +43,6 @@ abstract class EloquentTestCase extends PHPUnit_Framework_TestCase
                 }
             }
         });
-        Eloquent::unguard();
     }
 
     abstract protected function table();
