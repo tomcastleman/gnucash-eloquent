@@ -16,6 +16,10 @@ abstract class Split extends Book implements SplitInterface
         'reconcile_date',
     ];
 
+    protected $appends = [
+        'amount'
+    ];
+
     public function account()
     {
         return $this->belongsTo($this->namespaceForBook(Account::class), 'account_guid');
