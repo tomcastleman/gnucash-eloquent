@@ -17,7 +17,7 @@ abstract class Split extends Book implements SplitInterface
     ];
 
     protected $appends = [
-        'amount'
+        'amount',
     ];
 
     public function account()
