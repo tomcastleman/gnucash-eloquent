@@ -14,6 +14,8 @@ abstract class Account extends Book
         'balance_new_0',
         'balance_cleared_1',
         'balance_new_1',
+        'invert_0',
+        'invert_1',
     ];
 
     public function transactions()
