@@ -48,7 +48,7 @@ abstract class Transaction extends Book
 
     public function scopeForAccount($query, $accountGuid, $maxDaysPast = 0)
     {
-        $query->with('accounts', 'splits');
+        $query->with('accounts');
         $query->select('transactions.*');
         $query->join('splits', 'transactions.guid', '=', 'splits.tx_guid');
         $query->where('splits.account_guid', $accountGuid);
