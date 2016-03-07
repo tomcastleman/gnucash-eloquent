@@ -11,8 +11,6 @@ abstract class Transaction extends Book
     protected $primaryKey = 'guid';
     protected $dates = ['post_date', 'enter_date'];
 
-    protected $replicationStatus = [];
-
     protected $fillable = [
         'currency_guid',
         'post_date',
@@ -89,11 +87,6 @@ abstract class Transaction extends Book
         return $this->getAccount($accountGuid)->pivot;
     }
 
-    public function setReplicationStatus($replicationStatus)
-    {
-        $this->replicationStatus = $replicationStatus;
-    }
-
     public function getBalanceAttribute()
     {
         return round($this->splits->sum('amount'), 2);
@@ -102,23 +95,6 @@ abstract class Transaction extends Book
     public function getInBalanceAttribute()
     {
         return $this->balance === 0.00;
-    }
-
-    public function getIsReplicatedAttribute()
-    {
-        return (bool) $this->replicationStatus;
-    }
-
-    public function getReplicationIsAgreedAttribute()
-    {
-        return $this->is_replicated && array_get(
-            $this->replicationStatus, 'reconcile_state'
-        ) !== Split::RECONCILE_STATE_NEW;
-    }
-
-    public function getReplicationIsConflictedAttribute()
-    {
-        return $this->is_replicated && array_get($this->replicationStatus, 'conflict');
     }
 
     public function getAllSplitsAreNewAttribute()
