@@ -50,7 +50,6 @@ abstract class Account extends Book
         return $query->where('commodity_guid', $currencyGuid);
     }
 
-
     public static function scopeActive($query, $currencyGuid)
     {
         return $query->where('commodity_guid', $currencyGuid)
