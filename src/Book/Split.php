@@ -106,4 +106,13 @@ abstract class Split extends Book implements SplitInterface
 
         return $labels[$mode];
     }
+
+    public static function validReconcileState($state)
+    {
+        return in_array($state, [
+            static::RECONCILE_STATE_NEW,
+            static::RECONCILE_STATE_CLEARED,
+            static::RECONCILE_STATE_RECONCILED,
+        ]);
+    }
 }
