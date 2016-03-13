@@ -6,6 +6,7 @@ use GnuCash\Models\Book;
 
 abstract class Split extends Book implements SplitInterface
 {
+
     use SplitTrait;
 
     protected $table = 'splits';
@@ -57,7 +58,7 @@ abstract class Split extends Book implements SplitInterface
         $query->whereIn('memo', function ($query) {
             $query->select('memo')
                 ->from('splits')
-                ->where('memo', 'like', GNUCASH_XERO_MEMO_PREFIX.'%')
+                ->where('memo', 'like', GNUCASH_XERO_MEMO_PREFIX . '%')
                 ->groupBy('memo')
                 ->havingRaw('COUNT(guid) > 1');
         });
