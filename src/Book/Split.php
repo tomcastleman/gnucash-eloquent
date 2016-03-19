@@ -14,6 +14,7 @@ abstract class Split extends Book implements SplitInterface
     protected $fillable = [
         'reconcile_state',
         'reconcile_date',
+        'account_guid',
     ];
 
     protected $appends = [
