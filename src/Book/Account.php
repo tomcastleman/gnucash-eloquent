@@ -9,15 +9,6 @@ abstract class Account extends Book
     protected $table = 'accounts';
     protected $primaryKey = 'guid';
 
-    protected $appends = [
-        'balance_cleared_0',
-        'balance_new_0',
-        'balance_cleared_1',
-        'balance_new_1',
-        'invert_0',
-        'invert_1',
-    ];
-
     public function transactions()
     {
         $relation = $this->belongsToMany(
