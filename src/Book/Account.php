@@ -109,26 +109,23 @@ abstract class Account extends Book
 
     public function getBalanceAttribute()
     {
-        return call_user_func(
-            [$this->namespaceForBook(Split::class), 'getBalanceForAccount'],
-            $this->guid
-        );
+        return $this->splits->sum(function (Split $split) {
+            return $split->value_num / $split->value_denom;
+        });
     }
 
     public function getBalanceNewAttribute()
     {
-        return call_user_func(
-            [$this->namespaceForBook(Split::class), 'getBalanceForAccount'],
-            $this->guid, ['n']
-        );
+        return $this->splits->where('reconcile_state', 'n')->sum(function (Split $split) {
+            return $split->value_num / $split->value_denom;
+        });
     }
 
     public function getBalanceClearedAttribute()
     {
-        return call_user_func(
-            [$this->namespaceForBook(Split::class), 'getBalanceForAccount'],
-            $this->guid, ['c', 'y']
-        );
+        return $this->splits->whereIn('reconcile_state', ['c', 'y'])->sum(function (Split $split) {
+            return $split->value_num / $split->value_denom;
+        });
     }
 
     public function getBalance0Attribute()

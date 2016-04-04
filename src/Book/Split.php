@@ -74,13 +74,6 @@ abstract class Split extends Book implements SplitInterface
         );
     }
 
-    public static function getBalanceForAccount($accountGuid, $reconcileStates = null)
-    {
-        $account = $query = static::forAccount($accountGuid, $reconcileStates);
-
-        return $account->sum($query->getQuery()->raw('(value_num/value_denom)'));
-    }
-
     public static function getAccountTransactions(array $accountGuids, $txGuid)
     {
         $query = static::forTransaction($txGuid);
