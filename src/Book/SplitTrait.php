@@ -19,11 +19,6 @@ trait SplitTrait
         return round($this->value_num / $this->value_denom, 2);
     }
 
-    public function getXeroReceiptIdAttribute()
-    {
-        return str_replace(GNUCASH_XERO_MEMO_PREFIX, '', $this->memo);
-    }
-
     public function getIsReconciledAttribute()
     {
         return $this->reconcile_state === Split::RECONCILE_STATE_RECONCILED;

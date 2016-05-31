@@ -49,23 +49,6 @@ abstract class Split extends Book implements SplitInterface
         return $query;
     }
 
-    public function scopeDuplicateMemos($query, $accountGuid)
-    {
-        static::scopeForAccount($query, $accountGuid);
-
-        $query->with('transaction');
-
-        $query->whereIn('memo', function ($query) {
-            $query->select('memo')
-                ->from('splits')
-                ->where('memo', 'like', GNUCASH_XERO_MEMO_PREFIX.'%')
-                ->groupBy('memo')
-                ->havingRaw('COUNT(guid) > 1');
-        });
-
-        return $query;
-    }
-
     public static function scopeOrphans($query, $relation)
     {
         $query->whereNotIn(
